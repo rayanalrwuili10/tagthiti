@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🥗 تغذيتي - طبختك من ثلاجتك، بلمسة يدك </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-maintain">
+
+    <!-- ⚡ شاشة البداية الترحيبية -->
+    <div class="splash-screen" id="splashScreen">
+        <div class="splash-content">
+            <div class="splash-icon">🥗</div>
+            <h1 class="splash-title">تغذيتي</h1>
+            <p class="splash-subtitle">طبختك من ثلاجتك، بلمسة يدك</p>
+            <div class="splash-loader">
+                <div class="loader-dot"></div>
+                <div class="loader-dot"></div>
+                <div class="loader-dot"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🎯 التطبيق الرئيسي -->
+    <div class="app-container" id="appContainer">
+
+        <!-- 🟢 شريط الحالة العلوي -->
+        <header class="app-header" id="appHeader">
+            <div class="header-left">
+                <button class="icon-btn" id="menuBtn" title="القائمة">🍔</button>
+            </div>
+            <div class="header-center">
+                <h1 class="header-logo" id="headerLogo">🥗 تغذيتي</h1>
+            </div>
+            <div class="header-right">
+                <div class="mode-indicator" id="modeIndicator" title="الوضع الصحي الحالي">
+                    <span class="mode-dot"></span>
+                </div>
+            </div>
+        </header>
+
+        <!-- 📱 المحتوى الرئيسي -->
+        <main class="main-content" id="mainContent">
+
+            <!-- 🏠 الصفحة الرئيسية -->
+            <section class="page active" id="homePage">
+                
+                <!-- بطاقة الوضع الصحي -->
+                <div class="health-mode-card" id="healthModeCard">
+                    <div class="mode-card-inner">
+                        <div class="mode-info">
+                            <h3 id="modeTitle">⚖️ وضع التوازن</h3>
+                            <p id="modeSlogan">حافظ على توازنك</p>
+                        </div>
+                        <div class="mode-stats">
+                            <div class="stat-circle" id="statCircle">
+                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="circle-fill" id="circleFill" stroke-dasharray="50, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="stat-text">
+                                    <span class="stat-number" id="statNumber">0</span>
+                                    <span class="stat-unit" id="statUnit">سعرة</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mode-progress-bar">
+                        <div class="progress-fill" id="modeProgressFill"></div>
+                    </div>
+                    <div class="mode-status-text" id="modeStatusText">متوازن 100%</div>
+                </div>
+
+                <!-- أزرار الطوارئ والتعزيز -->
+                <div class="emergency-zone" id="emergencyZone">
+                    <button class="emergency-btn hidden" id="emergencyBtn" title="سناكات سريعة تحت 100 سعرة">
+                        🚨 شبع بسرعة!
+                    </button>
+                    <button class="boost-btn hidden" id="boostBtn" title="سناكات فوق 300 سعرة">
+                        💪 عزز وجبتك!
+                    </button>
+                </div>
+
+                <!-- 🧭 قائمة الأقسام الرئيسية -->
+                <div class="main-grid">
+                    <div class="grid-card" onclick="navigateTo('buildMeal')">
+                        <div class="card-icon-wrapper icon-green"><span class="card-icon">🍳</span></div>
+                        <h4>ابني طبختك</h4><p>من المكونات المتوفرة</p><span class="card-badge">الأكثر استخداماً</span>
+                    </div>
+                    <div class="grid-card" onclick="navigateTo('bestCalories')">
+                        <div class="card-icon-wrapper icon-gold"><span class="card-icon">💰</span></div>
+                        <h4>الأفضل بالسعرات</h4><p>وصفات تناسب هدفك</p>
+                    </div>
+                    <div class="grid-card" onclick="navigateTo('smartAlternatives')">
+                        <div class="card-icon-wrapper icon-purple"><span class="card-icon">🔄</span></div>
+                        <h4>بدائل ذكية</h4><p>وفر سعرات بذكاء</p><span class="card-badge hot">جديد</span>
+                    </div>
+                    <div class="grid-card" onclick="navigateTo('myKitchen')">
+                        <div class="card-icon-wrapper icon-orange"><span class="card-icon">👤</span></div>
+                        <h4>مطبخي</h4><p>وصفاتك وملاحظاتك</p>
+                    </div>
+                    <div class="grid-card" onclick="navigateTo('myHealth')">
+                        <div class="card-icon-wrapper icon-blue"><span class="card-icon">📊</span></div>
+                        <h4>صحتي</h4><p>متابعة رحلتك</p>
+                    </div>
+                    <div class="grid-card" onclick="navigateTo('challenges')">
+                        <div class="card-icon-wrapper icon-red"><span class="card-icon">🏆</span></div>
+                        <h4>التحديات</h4><p>تحديات وأوسمة</p>
+                    </div>
+                    <div class="grid-card" onclick="navigateTo('shoppingList')">
+                        <div class="card-icon-wrapper icon-teal"><span class="card-icon">📋</span></div>
+                        <h4>قائمة التسوق</h4><p>مشترياتك الذكية</p>
+                    </div>
+                    <div class="grid-card" onclick="navigateTo('settings')">
+                        <div class="card-icon-wrapper icon-gray"><span class="card-icon">⚙️</span></div>
+                        <h4>الإعدادات</h4><p>خصص تجربتك</p>
+                    </div>
+                    <!-- 🆕 بطاقة جديدة للمكملات -->
+                    <div class="grid-card" onclick="navigateTo('supplements')">
+                        <div class="card-icon-wrapper icon-gold"><span class="card-icon">💊</span></div>
+                        <h4>المكملات</h4><p>جرعات وتذكير</p><span class="card-badge hot">للمعضلين</span>
+                    </div>
+                    <!-- 🆕 بطاقة حاسبة البروتين -->
+                    <div class="grid-card" onclick="navigateTo('proteinCalc')">
+                        <div class="card-icon-wrapper icon-blue"><span class="card-icon">🏋️</span></div>
+                        <h4>حاسبة البروتين</h4><p>احسب احتياجك اليومي</p>
+                    </div>
+                </div>
+
+                <!-- وصفات سريعة مقترحة -->
+                <div class="section-header">
+                    <h3>🔥 وصفات سريعة مقترحة</h3>
+                    <a href="#" onclick="navigateTo('buildMeal')">عرض الكل ←</a>
+                </div>
+                <div class="horizontal-scroll" id="quickRecipes"><!-- تمليء ديناميكيا --></div>
+            </section>
+
+            <!-- 🍳 صفحة ابني طبختك -->
+            <section class="page" id="buildMealPage">
+                <div class="page-header">
+                    <button class="back-btn" onclick="goHome()">← رجوع</button>
+                    <h2>🍳 ابني طبختك</h2>
+                </div>
+                <p class="page-desc">اختر المكونات المتوفرة لديك وسنقترح عليك أفضل الوصفات</p>
+                <div class="ingredient-groups" id="ingredientGroupsContainer"><!-- JavaScript سيملؤها --></div>
+                <div class="selected-ingredients" id="selectedIngredients">
+                    <h4>📝 المكونات المختارة:</h4>
+                    <div class="selected-tags" id="selectedTags"><p class="no-selection">لم تختر أي مكون بعد</p></div>
+                </div>
+                <div class="filter-row">
+                    <button class="btn-primary btn-lg" id="searchRecipesBtn" onclick="searchRecipes()">🔍 ابحث عن طبخة</button>
+                </div>
+                <div class="filter-chips">
+                    <span class="filter-chip" onclick="filterRecipes('quick')">⏱️ سريعة</span>
+                    <span class="filter-chip" onclick="filterRecipes('easy')">🟢 سهلة</span>
+                    <span class="filter-chip" onclick="filterRecipes('cheap')">💸 اقتصادية</span>
+                    <span class="filter-chip" onclick="filterRecipes('fav')">⭐ المفضلة</span>
+                    <span class="filter-chip" onclick="filterRecipes('highProtein')">🥩 عالي البروتين</span>
+                </div>
+                <div class="results-container" id="resultsContainer">
+                    <h4>📋 نتائج البحث</h4>
+                    <div class="results-list" id="resultsList"><!-- JavaScript سيملؤها --></div>
+                </div>
+            </section>
+
+            <!-- 💰 صفحة الأفضل بالسعرات -->
+            <section class="page" id="bestCaloriesPage">
+                <div class="page-header">
+                    <button class="back-btn" onclick="goHome()">← رجوع</button>
+                    <h2>💰 الأفضل بالسعرات</h2>
+                </div>
+                <div class="calorie-input-card">
+                    <label>🎯 حدد السعرات المطلوبة للوجبة:</label>
+                    <div class="calorie-slider-container">
+                        <input type="range" min="100" max="1500" value="500" step="50" class="calorie-slider" id="calorieSlider" oninput="updateCalorieValue()">
+                        <div class="calorie-value-display"><span class="calorie-number" id="calorieNumber">500</span><span>سعرة حرارية</span></div>
+                    </div>
+                </div>
+                <div class="sort-options">
+                    <button class="sort-btn active" onclick="sortCalorieResults('rating')">⭐ الأعلى تقييماً</button>
+                    <button class="sort-btn" onclick="sortCalorieResults('filling')">🥗 الأكثر إشباعاً</button>
+                    <button class="sort-btn" onclick="sortCalorieResults('community')">👨‍🍳 وصفات المجتمع</button>
+                    <button class="sort-btn" onclick="sortCalorieResults('cheap')">💸 الأقل تكلفة</button>
+                </div>
+                <div class="results-list" id="calorieResults"><!-- JavaScript سيملؤها --></div>
+                <div class="daily-budget-card">
+                    <h4>📊 ميزانيتي اليومية</h4>
+                    <div class="budget-bar"><div class="budget-fill" id="budgetFill" style="width: 45%;"></div></div>
+                    <div class="budget-info">
+                        <span id="budgetRemaining">🟢 متبقي: 1,100 سعرة</span>
+                        <span id="budgetConsumed">المستهلك: 900 / 2,000</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 🔄 صفحة بدائل ذكية -->
+            <section class="page" id="smartAlternativesPage">
+                <div class="page-header">
+                    <button class="back-btn" onclick="goHome()">← رجوع</button>
+                    <h2>🔄 بدائل ذكية</h2>
+                </div>
+                <p class="page-desc">اختر طبختك المفضلة واكتشف كيف تجعلها أخف سعرات</p>
+                <div class="alt-recipe-select">
+                    <label>🍔 اختر الطبخة:</label>
+                    <select class="styled-select" id="altRecipeSelect" onchange="updateAltPlan()"><!-- JavaScript سيملؤها --></select>
+                </div>
+                <div class="alt-plans" id="altPlansContainer"><!-- JavaScript سيملؤها --></div>
+                <div class="emergency-buttons-inline">
+                    <button class="emergency-btn-inline" id="emergencyBtnInline" onclick="showEmergencySnacks()">🚨 زر الطوارئ - سناكات تحت 100 سعرة</button>
+                    <button class="boost-btn-inline" id="boostBtnInline" onclick="showBoostSnacks()">💪 زر التعزيز - سناكات فوق 300 سعرة</button>
+                </div>
+            </section>
+
+            <!-- 👤 صفحة مطبخي -->
+            <section class="page" id="myKitchenPage">
+                <div class="page-header">
+                    <button class="back-btn" onclick="goHome()">← رجوع</button>
+                    <h2>👤 مطبخي</h2>
+                </div>
+                <div class="kitchen-tabs">
+                    <button class="kitchen-tab active" onclick="switchKitchenTab('my')">طبخاتي</button>
+                    <button class="kitchen-tab" onclick="switchKitchenTab('modified')">المعدلة</button>
+                    <button class="kitchen-tab" onclick="switchKitchenTab('fav')">⭐ المفضلة</button>
+                    <button class="kitchen-tab" onclick="switchKitchenTab('notes')">📝 الملاحظات</button>
+                </div>
+                <div class="kitchen-stats-mini">
+                    <div class="stat-mini"><span class="stat-mini-icon">📜</span><span class="stat-mini-num" id="statMyRecipes">0</span><span>وصفة</span></div>
+                    <div class="stat-mini"><span class="stat-mini-icon">⭐</span><span class="stat-mini-num" id="statFavRecipes">0</span><span>مفضلة</span></div>
+                    <div class="stat-mini"><span class="stat-mini-icon">🔄</span><span class="stat-mini-num" id="statModRecipes">0</span><span>معدلة</span></div>
+                </div>
+                <div class="kitchen-recipes" id="kitchenRecipesList"><!-- JavaScript سيملؤها --></div>
+            </section>
+
+            <!-- 📊 صفحة صحتي (تشمل وضع بناء عضلي + حاسبة بروتين) -->
+            <section class="page" id="myHealthPage">
+                <div class="page-header">
+                    <button class="back-btn" onclick="goHome()">← رجوع</button>
+                    <h2>📊 صحتي</h2>
+                </div>
+                <div class="health-modes-selector" id="healthModesSelector">
+                    <div class="health-mode-option" data-mode="lose" onclick="switchHealthMode('lose')"><span>🔥</span><span>خسارة الوزن</span></div>
+                    <div class="health-mode-option" data-mode="maintain" onclick="switchHealthMode('maintain')"><span>⚖️</span><span>المحافظة</span></div>
+                    <div class="health-mode-option" data-mode="gain" onclick="switchHealthMode('gain')"><span>💪</span><span>زيادة الوزن</span></div>
+                    <!-- 🆕 وضع بناء عضلي -->
+                    <div class="health-mode-option" data-mode="muscle" onclick="switchHealthMode('muscle')"><span>🏋️</span><span>بناء عضلي</span></div>
+                </div>
+                <div class="health-detail-card" id="healthDetailCard">
+                    <h3 id="healthDetailTitle">⚖️ وضع التوازن</h3>
+                    <p id="healthDetailDesc">حافظ على توازنك - توازنك سر صحتك</p>
+                    <div class="health-specs">
+                        <div class="spec-item"><span>🎯 الهدف:</span> <span id="specGoal">توازن سعرات</span></div>
+                        <div class="spec-item"><span>🍽️ حجم الوجبة:</span> <span id="specMeal">500-700 سعرة</span></div>
+                        <div class="spec-item"><span>🔔 تذكير:</span> <span id="specReminder">3 وجبات + 1 سناك</span></div>
+                    </div>
+                </div>
+                <!-- 🆕 حاسبة البروتين اليومي (مضمنة في صحتي) -->
+                <div class="protein-calc-card" id="proteinCalcCard">
+                    <h4>🏋️ حاسبة البروتين اليومي</h4>
+                    <label for="userWeight">وزنك (كجم):</label>
+                    <input type="number" id="userWeight" placeholder="مثلاً 70" value="70" min="30" max="200" oninput="calcDailyProtein()">
+                    <label for="activityLevel">مستوى نشاطك:</label>
+                    <select id="activityLevel" onchange="calcDailyProtein()">
+                        <option value="1.2">قليل الحركة</option>
+                        <option value="1.4" selected>متوسط النشاط</option>
+                        <option value="1.8">عالي النشاط (رياضي)</option>
+                        <option value="2.2">بناء عضلي مكثف</option>
+                    </select>
+                    <div class="protein-result">
+                        <span>احتياجك اليومي من البروتين:</span>
+                        <strong id="proteinResult">140</strong> غرام
+                    </div>
+                </div>
+                <!-- تحدي 30 يوم -->
+                <div class="challenge-mini-card">
+                    <h4>🏆 تحدي 30 يوم</h4>
+                    <div class="challenge-progress">
+                        <div class="challenge-dots" id="challengeDots"></div>
+                        <span id="challengeDayText">اليوم 3 من 30</span>
+                    </div>
+                    <div class="medals"><span>🥉 اليوم 10</span><span>🥈 اليوم 20</span><span>🥇 اليوم 30</span></div>
+                </div>
+            </section>
+
+            <!-- 🏆 صفحة التحديات -->
+            <section class="page" id="challengesPage">
+                <div class="page-header"><button class="back-btn" onclick="goHome()">← رجوع</button><h2>🏆 التحديات</h2></div>
+                <div class="challenge-cards" id="challengeCardsContainer"></div>
+                <div class="badges-section"><h4>🏅 أوسمتك</h4><div class="badges-grid" id="badgesGrid"></div></div>
+            </section>
+
+            <!-- 📋 صفحة قائمة التسوق -->
+            <section class="page" id="shoppingListPage">
+                <div class="page-header"><button class="back-btn" onclick="goHome()">← رجوع</button><h2>📋 قائمة التسوق</h2></div>
+                <div class="shopping-categories" id="shoppingCategoriesContainer"></div>
+                <div class="total-cost-card"><span>💰 التكلفة التقريبية:</span><strong id="totalCostValue">0 ريال</strong></div>
+            </section>
+
+            <!-- 🆕💊 صفحة المكملات الغذائية -->
+            <section class="page" id="supplementsPage">
+                <div class="page-header"><button class="back-btn" onclick="goHome()">← رجوع</button><h2>💊 المكملات الغذائية</h2></div>
+                <p class="page-desc">تذكير بالجرعات المناسبة للمكملات حسب هدفك</p>
+                <div class="supplement-list" id="supplementList"></div>
+                <div class="supplement-reminder">
+                    <label><input type="checkbox" id="remindSupplements" onchange="toggleSupplementReminder()"> 🔔 تذكير يومي بالجرعات</label>
+                </div>
+            </section>
+
+            <!-- 🏋️ صفحة حاسبة البروتين (مستقلة) -->
+            <section class="page" id="proteinCalcPage">
+                <div class="page-header"><button class="back-btn" onclick="goHome()">← رجوع</button><h2>🏋️ حاسبة البروتين</h2></div>
+                <div class="protein-calc-card">
+                    <h4>احسب احتياجك اليومي من البروتين</h4>
+                    <label for="userWeight2">وزنك (كجم):</label>
+                    <input type="number" id="userWeight2" placeholder="مثلاً 70" value="70" min="30" max="200" oninput="calcDailyProtein2()">
+                    <label for="activityLevel2">مستوى نشاطك:</label>
+                    <select id="activityLevel2" onchange="calcDailyProtein2()">
+                        <option value="1.2">قليل الحركة</option>
+                        <option value="1.4" selected>متوسط النشاط</option>
+                        <option value="1.8">عالي النشاط (رياضي)</option>
+                        <option value="2.2">بناء عضلي مكثف</option>
+                    </select>
+                    <div class="protein-result"><span>احتياجك اليومي من البروتين:</span><strong id="proteinResult2">140</strong> غرام</div>
+                    <p class="protein-tip" id="proteinTip">💡 وزع البروتين على 4-5 وجبات يومياً</p>
+                </div>
+            </section>
+
+            <!-- ⚙️ صفحة الإعدادات -->
+            <section class="page" id="settingsPage">
+                <div class="page-header"><button class="back-btn" onclick="goHome()">← رجوع</button><h2>⚙️ الإعدادات</h2></div>
+                <div class="settings-list">
+                    <div class="setting-item">
+                        <span>🎯 الوضع الصحي</span>
+                        <select class="styled-select-sm" id="settingsMode" onchange="switchHealthMode(this.value)">
+                            <option value="lose">🔥 خسارة الوزن</option>
+                            <option value="maintain" selected>⚖️ المحافظة</option>
+                            <option value="gain">💪 زيادة الوزن</option>
+                            <!-- 🆕 -->
+                            <option value="muscle">🏋️ بناء عضلي</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <span>🎨 السمة</span>
+                        <select class="styled-select-sm" id="settingsTheme" onchange="switchTheme(this.value)">
+                            <option value="theme-lose">🌿 أخضر</option>
+                            <option value="theme-maintain" selected>☁️ أزرق</option>
+                            <option value="theme-gain">🍊 برتقالي</option>
+                            <!-- 🆕 ثيم بنفسجي -->
+                            <option value="theme-muscle">🟣 بنفسجي (عضلي)</option>
+                            <option value="theme-dark">🌙 داكن</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <span>🥛 المكيال عندي</span>
+                        <select class="styled-select-sm" id="settingsCup" onchange="updateCupSetting(this.value)">
+                            <option value="250">🥛 كوب ماء (250 مل)</option>
+                            <option value="200">☕ كوب شاي (200 مل)</option>
+                            <option value="300">🥤 كوب كبير (300 مل)</option>
+                            <option value="60">🍵 فنجال (60 مل)</option>
+                        </select>
+                    </div>
+                    <div class="setting-item"><span>⏰ تذكير الوجبات</span><input type="checkbox" checked class="toggle-switch" id="mealReminderToggle" onchange="toggleReminder('meal')"></div>
+                    <div class="setting-item"><span>🔔 تذكير التحدي</span><input type="checkbox" class="toggle-switch" id="challengeReminderToggle" onchange="toggleReminder('challenge')"></div>
+                    <div class="setting-item"><span>🌐 اللغة</span><select class="styled-select-sm"><option>العربية</option><option>English</option></select></div>
+                    <div class="setting-item"><span>🔊 الصوت والاهتزاز</span><input type="checkbox" checked class="toggle-switch" id="soundToggle"></div>
+                    <button class="btn-danger" onclick="resetAllData()">🔄 إعادة الضبط</button>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- 📱 شريط التنقل السفلي -->
+        <nav class="bottom-nav">
+            <button class="nav-btn active" onclick="goHome()" title="الرئيسية"><span class="nav-icon">🏠</span><span class="nav-label">الرئيسية</span></button>
+            <button class="nav-btn" onclick="navigateTo('buildMeal')" title="ابني طبختك"><span class="nav-icon">🍳</span><span class="nav-label">ابني طبختك</span></button>
+            <button class="nav-btn" onclick="navigateTo('bestCalories')" title="السعرات"><span class="nav-icon">💰</span><span class="nav-label">السعرات</span></button>
+            <!-- 🆕 -->
+            <button class="nav-btn" onclick="navigateTo('supplements')" title="المكملات"><span class="nav-icon">💊</span><span class="nav-label">المكملات</span></button>
+            <button class="nav-btn" onclick="navigateTo('settings')" title="الإعدادات"><span class="nav-icon">⚙️</span><span class="nav-label">الإعدادات</span></button>
+        </nav>
+    </div>
+
+    <!-- نوافذ منبثقة -->
+    <div class="modal-overlay" id="emergencyModal">
+        <div class="modal-content"><div class="modal-header"><h3>🚨 سناكات سريعة تحت 100 سعرة</h3><button class="modal-close" onclick="closeModal('emergencyModal')">✕</button></div><div class="modal-body" id="emergencyModalBody"></div></div>
+    </div>
+    <div class="modal-overlay" id="boostModal">
+        <div class="modal-content"><div class="modal-header"><h3>💪 سناكات فوق 300 سعرة</h3><button class="modal-close" onclick="closeModal('boostModal')">✕</button></div><div class="modal-body" id="boostModalBody"></div></div>
+    </div>
+    <div class="modal-overlay" id="noteModal">
+        <div class="modal-content"><div class="modal-header"><h3 id="noteModalTitle">📝 تفاصيل</h3><button class="modal-close" onclick="closeModal('noteModal')">✕</button></div><div class="modal-body" id="noteModalBody"></div></div>
+    </div>
+
+    <!-- إشعار -->
+    <div class="toast" id="toast"><span class="toast-icon">✅</span><span class="toast-message" id="toastMessage">تم بنجاح!</span></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
